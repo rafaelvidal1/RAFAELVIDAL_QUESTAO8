@@ -17,7 +17,7 @@ public class Sprint01Tests {
 		
 		Sistema s0 = new Sistema();
 		
-		assertTrue(s0.Add("NomeTeste"));
+		assertTrue(s0.Inserir("NomeTeste"));
 		
 		assertTrue(s0.EmprestarLivro("NomeTeste","NomeDoLivro"));
 		
