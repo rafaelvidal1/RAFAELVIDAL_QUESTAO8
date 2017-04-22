@@ -93,11 +93,18 @@ public class Sistema {
 	
 	void RegistrarEmprestimo(String nomeLivro, String nomeUsuario){
 		Livro l0;
+		Usuario u0;
 		
 		l0 = ProcurarLivroBD(nomeLivro);
 		
 		if (l0==null){
 			return;
+		}
+		
+		u0 = ProcurarBD(nomeUsuario);
+		
+		if(u0 == null){
+			return ;
 		}
 		
 		Emprestimo e0 = new Emprestimo(nomeLivro,nomeUsuario);
@@ -110,6 +117,27 @@ public class Sistema {
 	}
 	
 	void RegistrarDevolucao(String nomeLivro, String nomeUsuario){
+		Livro l0;
+		Usuario u0;
 		
+		l0 = ProcurarLivroBD(nomeLivro);
+		
+		if (l0==null){
+			return;
+		}
+		
+		u0 = ProcurarBD(nomeUsuario);
+		
+		if(u0 == null){
+			return ;
+		}
+		
+		Emprestimo e0 = new Emprestimo(nomeLivro,nomeUsuario);
+		
+		BDLivros.remove(l0);
+		l0.SetStatus("disponível");
+		BDLivros.add(l0);
+		
+		BDEmprestimos.remove(e0);
 	}
 }
