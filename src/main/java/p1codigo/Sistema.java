@@ -62,7 +62,19 @@ public class Sistema {
 	}
 	
 	void BanUsuario(String nome,int tempo){
+		Usuario u0;
 		
+		u0 = ProcurarBD(nome);
 		
+		if(u0 == null){
+			return ;
+		}
+		
+		BD.remove(u0);
+		
+		u0.SetStatus(false);
+		u0.SetTempoBan(tempo);
+		
+		BD.add(u0);
 	}
 }
