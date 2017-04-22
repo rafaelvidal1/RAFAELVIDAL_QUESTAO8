@@ -11,6 +11,7 @@ public class Sprint02Tests {
 		Sistema s0 = new Sistema();
 		Usuario u0 = new Usuario("nomeTeste",true,0);
 		Livro l0 = new Livro("nomeLivroTeste","disponível");
+		//Livro adicionado ao "BD" manualmente
 		s0.BDLivros.add(l0);
 		
 		s0.Inserir("nomeUsuarioTeste");
