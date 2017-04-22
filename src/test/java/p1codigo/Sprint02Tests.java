@@ -10,12 +10,14 @@ public class Sprint02Tests {
 	public void testRegistrarEmprestimoLivro() {
 		Sistema s0 = new Sistema();
 		Usuario u0 = new Usuario("nomeTeste",true,0);
+		Livro l0 = new Livro("nomeLivroTeste","disponível");
+		s0.BDLivros.add(l0);
 		
 		s0.Inserir("nomeUsuarioTeste");
 		
 		s0.RegistrarEmprestimo("nomeLivroTeste","nomeUsuarioTeste");
 		
-		assertEquals("Emprestado", s0.BDLivros.get(0).GetStatus());
+		assertEquals("retirado", s0.BDLivros.get(0).GetStatus());
 	}
 
 }

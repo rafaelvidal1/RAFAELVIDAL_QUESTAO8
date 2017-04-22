@@ -48,6 +48,17 @@ public class Sistema {
 		return null;
 	}
 	
+	Livro ProcurarLivroBD(String nome){
+		
+		System.out.printf("Livro %s sendo procurado no BD! \n",nome);
+		for(Livro l : BDLivros){
+			if(l.GetNome() == nome){
+				return l;
+			}
+		}
+		return null;
+	}
+	
 	boolean Remover(String nome){
 		Usuario u0;
 		
@@ -80,6 +91,18 @@ public class Sistema {
 	}
 	
 	void RegistrarEmprestimo(String nomeLivro, String nomeUsuario){
+		Livro l0;
 		
+		l0 = ProcurarLivroBD(nomeLivro);
+		
+		if (l0==null){
+			return;
+		}
+		
+		BDLivros.remove(l0);
+		
+		l0.SetStatus("retirado");
+		
+		BDLivros.add(l0);
 	}
 }
