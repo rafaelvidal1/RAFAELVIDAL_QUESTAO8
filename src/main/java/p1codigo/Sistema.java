@@ -1,33 +1,7 @@
 package p1codigo;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 public class Sistema {
 	
-	public static void connect() {
-        Connection conn = null;
-        try {
-            // db parameters
-            String url = "jdbc:sqlite:C:/sqlite/company.db";
-            // create a connection to the database
-            conn = DriverManager.getConnection(url);
-            
-            System.out.println("Connection to SQLite has been established.");
-            
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }
-    }
 	
 	boolean Inserir(String nomeUsuario){
 		Usuario u0 = new Usuario(nomeUsuario,true,0);
@@ -38,7 +12,6 @@ public class Sistema {
 			System.out.println(e.getMessage());
 			flag = false;
 		}
-		
 		return flag;
 	}
 	
@@ -52,11 +25,16 @@ public class Sistema {
 		return flag;
 	}
 	
-	void Persistir(Usuario u0){
-		
+	void Persistir(Usuario u0) throws Exception{
+		System.out.println("usuário adicionado ao BD");
+		 
 	}
 	
 	Usuario ProcurarBD(String nome){
+		
+		System.out.printf("Usuário %s ssendo procurado no BD! \n",nome);
+		//Deveria procurar no BD aqui, mas como não há BD foi criado um usuário genérico que será retornado.
+		
 		Usuario u0 = new Usuario(nome,true,0);
 		return u0;
 	}

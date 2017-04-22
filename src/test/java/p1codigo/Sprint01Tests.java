@@ -15,22 +15,18 @@ public class Sprint01Tests {
 	@Test
 	public void testInserirUsuario() throws Exception {
 		
-		Sistema s0 = new Sistema();
+		Sistema s0 = mock(Sistema.class);
+		Usuario u0 = new Usuario("nomeTeste",true,0);
 		
-		assertTrue(s0.Inserir("NomeTeste"));
+		when(s0.Inserir("nomeTeste")).thenReturn(true);
 		
-		assertTrue(s0.EmprestarLivro("NomeTeste","NomeDoLivro"));
+		assertTrue(s0.Inserir("nomeTeste"));
 		
-		//when(sMock.Add("nomeTeste")).thenReturn(true);
+		when(s0.ProcurarBD("nomeTeste")).thenReturn(u0);
 		
-		//assertTrue(sMock.Add("nomeTeste"));
-	
-		//doThrow(new SQLException()).when(sMock).Persistir(uMock);
+		when(s0.EmprestarLivro("nomeTeste","NomeDoLivro")).thenReturn(true);
 		
-		//when(sMock.Add(uMock)).thenReturn(false);
-		
-		//assertFalse(sMock.Add(uMock));
-		
+		assertTrue(s0.EmprestarLivro("nomeTeste","NomeDoLivro"));
 		
 	}
 	
