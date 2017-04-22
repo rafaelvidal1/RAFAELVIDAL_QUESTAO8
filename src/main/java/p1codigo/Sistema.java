@@ -6,6 +6,7 @@ import java.util.List;
 public class Sistema {
 	List<Usuario> BD = new ArrayList<Usuario>(); 
 	List<Livro> BDLivros = new ArrayList<Livro>(); 
+	List<Emprestimo> BDEmprestimos = new ArrayList<Emprestimo>();
 	
 	boolean Inserir(String nomeUsuario){
 		Usuario u0 = new Usuario(nomeUsuario,true,0);
@@ -99,10 +100,16 @@ public class Sistema {
 			return;
 		}
 		
+		Emprestimo e0 = new Emprestimo(nomeLivro,nomeUsuario);
+		
 		BDLivros.remove(l0);
-		
 		l0.SetStatus("retirado");
-		
 		BDLivros.add(l0);
+		
+		BDEmprestimos.add(e0);
+	}
+	
+	void RegistrarDevolucao(String nomeLivro, String nomeUsuario){
+		
 	}
 }
