@@ -1,7 +1,10 @@
 package p1codigo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Sistema {
-	
+	List<Usuario> BD = new ArrayList<Usuario>(); 
 	
 	boolean Inserir(String nomeUsuario){
 		Usuario u0 = new Usuario(nomeUsuario,true,0);
@@ -16,26 +19,31 @@ public class Sistema {
 	}
 	
 	boolean EmprestarLivro(String nomeUsuario,String nomeLivro){
-		boolean flag;
 		Usuario u0;
 		
 		u0 = ProcurarBD(nomeUsuario);
-		flag = u0.GetStatus();
 		
-		return flag;
+		if(u0==null){
+			return false;
+		}
+		
+		return u0.GetStatus();
 	}
 	
 	void Persistir(Usuario u0) throws Exception{
+		BD.add(u0);
 		System.out.println("usuário adicionado ao BD");
 		 
 	}
 	
 	Usuario ProcurarBD(String nome){
 		
-		System.out.printf("Usuário %s ssendo procurado no BD! \n",nome);
-		//Deveria procurar no BD aqui, mas como não há BD foi criado um usuário genérico que será retornado.
-		
-		Usuario u0 = new Usuario(nome,true,0);
-		return u0;
+		System.out.printf("Usuário %s sendo procurado no BD! \n",nome);
+		for(Usuario u : BD){
+			if(u.GetNome() == nome){
+				return u;
+			}
+		}
+		return null;
 	}
 }

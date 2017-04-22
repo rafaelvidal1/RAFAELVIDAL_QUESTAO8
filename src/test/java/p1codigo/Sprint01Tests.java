@@ -15,21 +15,14 @@ public class Sprint01Tests {
 	@Test
 	public void testInserirUsuario() throws Exception {
 		
-		Sistema s0 = mock(Sistema.class);
+		Sistema s0 = new Sistema();
 		Usuario u0 = new Usuario("nomeTeste",true,0);
 		
-		when(s0.Inserir("nomeTeste")).thenReturn(true);
-		
 		assertTrue(s0.Inserir("nomeTeste"));
-		
-		when(s0.ProcurarBD("nomeTeste")).thenReturn(u0);
-		
-		when(s0.EmprestarLivro("nomeTeste","NomeDoLivro")).thenReturn(true);
+		assertEquals(s0.BD.get(0).GetNome(), "nomeTeste");
 		
 		assertTrue(s0.EmprestarLivro("nomeTeste","NomeDoLivro"));
 		
 	}
-	
-	
 
 }
