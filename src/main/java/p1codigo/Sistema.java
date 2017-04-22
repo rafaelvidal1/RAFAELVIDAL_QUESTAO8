@@ -60,4 +60,9 @@ public class Sistema {
 		
 		return true;
 	}
+	
+	void BanUsuario(String nome,int tempo){
+		
+		
+	}
 }

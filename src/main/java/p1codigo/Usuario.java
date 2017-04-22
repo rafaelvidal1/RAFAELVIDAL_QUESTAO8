@@ -23,7 +23,7 @@ public class Usuario {
 		_tempoBan=tempoBan;
 	}
 	
-	int TempoBan(){
+	int GetTempoBan(){
 		return _tempoBan;
 	}
 	
