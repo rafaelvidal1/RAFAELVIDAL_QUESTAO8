@@ -48,6 +48,16 @@ public class Sistema {
 	}
 	
 	boolean Remover(String nome){
-		return false;
+		Usuario u0;
+		
+		u0 = ProcurarBD(nome);
+		
+		if(u0 == null){
+			return false;
+		}
+		
+		BD.remove(u0);
+		
+		return true;
 	}
 }
