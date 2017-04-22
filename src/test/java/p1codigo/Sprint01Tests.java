@@ -21,7 +21,7 @@ public class Sprint01Tests {
 		assertTrue(s0.Inserir("nomeTeste"));
 		assertEquals(s0.BD.get(0).GetNome(), "nomeTeste");
 		
-		assertTrue(s0.EmprestarLivro("nomeTeste","NomeDoLivro"));
+		assertTrue(s0.EmprestarLivro("nomeTeste"));
 		
 	}
 	

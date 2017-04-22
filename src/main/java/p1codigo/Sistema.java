@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Sistema {
 	List<Usuario> BD = new ArrayList<Usuario>(); 
+	List<Livro> BDLivros = new ArrayList<Livro>(); 
 	
 	boolean Inserir(String nomeUsuario){
 		Usuario u0 = new Usuario(nomeUsuario,true,0);
@@ -18,7 +19,7 @@ public class Sistema {
 		return flag;
 	}
 	
-	boolean EmprestarLivro(String nomeUsuario,String nomeLivro){
+	boolean EmprestarLivro(String nomeUsuario){
 		Usuario u0;
 		
 		u0 = ProcurarBD(nomeUsuario);
@@ -76,5 +77,9 @@ public class Sistema {
 		u0.SetTempoBan(tempo);
 		
 		BD.add(u0);
+	}
+	
+	void RegistrarEmprestimo(String nomeLivro, String nomeUsuario){
+		
 	}
 }
