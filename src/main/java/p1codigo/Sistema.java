@@ -46,4 +46,8 @@ public class Sistema {
 		}
 		return null;
 	}
+	
+	boolean Remover(String nome){
+		return false;
+	}
 }

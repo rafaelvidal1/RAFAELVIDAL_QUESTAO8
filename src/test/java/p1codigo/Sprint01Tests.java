@@ -24,5 +24,15 @@ public class Sprint01Tests {
 		assertTrue(s0.EmprestarLivro("nomeTeste","NomeDoLivro"));
 		
 	}
+	
+	@Test
+	public void testRemoverUsuario(){
+		Sistema s0 = new Sistema();
+		Usuario u0 = new Usuario("nomeTeste",true,0);
+		
+		assertTrue(s0.Inserir("nomeTeste"));
+		
+		assertTrue(s0.Remover("nomeTeste"));
+	}
 
 }
