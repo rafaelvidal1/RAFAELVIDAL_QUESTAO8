@@ -49,5 +49,7 @@ public class Sprint01Tests {
 		assertEquals(s0.BD.get(0).GetTempoBan(), 2);
 		assertFalse(s0.BD.get(0).GetStatus());
 	}
+	
+	
 
 }
