@@ -36,6 +36,9 @@ public class Sprint03Tests {
 		Livro l0 = new Livro("nomeLivroTeste0","disponível");
 		Livro l1 = new Livro("nomeLivroTeste1","extraviado");
 		Livro l2 = new Livro("nomeLivroTeste2","retirado");
+		s0.BDLivros.add(l0);
+		s0.BDLivros.add(l1);
+		s0.BDLivros.add(l2);
 		
 		assertEquals("disponível",s0.StatusLivro("nomeLivroTeste0"));
 		assertEquals("extraviado",s0.StatusLivro("nomeLivroTeste1"));

@@ -142,6 +142,14 @@ public class Sistema {
 	}
 	
 	public String StatusLivro(String nomeLivro){
-		return "Teste";
+		Livro l0;
+		
+		l0 = ProcurarLivroBD(nomeLivro);
+		
+		if (l0==null){
+			return "Livro inexistente!";
+		}
+		
+		return l0.GetStatus();
 	}
 }
