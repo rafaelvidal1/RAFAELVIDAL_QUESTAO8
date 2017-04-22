@@ -140,4 +140,8 @@ public class Sistema {
 		
 		BDEmprestimos.remove(e0);
 	}
+	
+	public String StatusLivro(String nomeLivro){
+		return "Teste";
+	}
 }

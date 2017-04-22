@@ -29,5 +29,17 @@ public class Sprint03Tests {
 		assertEquals(2,uRetorno.GetTempoBan());
 		
 	}
+	
+	@Test
+	public void testStatusLivro(){
+		Sistema s0 = new Sistema();
+		Livro l0 = new Livro("nomeLivroTeste0","disponível");
+		Livro l1 = new Livro("nomeLivroTeste1","extraviado");
+		Livro l2 = new Livro("nomeLivroTeste2","retirado");
+		
+		assertEquals("disponível",s0.StatusLivro("nomeLivroTeste0"));
+		assertEquals("extraviado",s0.StatusLivro("nomeLivroTeste1"));
+		assertEquals("retirado",s0.StatusLivro("nomeLivroTeste2"));
+	}
 
 }
