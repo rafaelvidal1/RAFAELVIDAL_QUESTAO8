@@ -16,7 +16,7 @@ public class Sprint02Tests {
 		
 		s0.Inserir("nomeUsuarioTeste");
 		
-		s0.RegistrarEmprestimo("nomeLivroTeste","nomeUsuarioTeste");
+		s0.RegistrarEmprestimo("nomeLivroTeste","nomeUsuarioTeste",2);
 		
 		assertEquals("retirado", s0.BDLivros.get(0).GetStatus());
 	}
@@ -30,7 +30,7 @@ public class Sprint02Tests {
 		
 		s0.Inserir("nomeUsuarioTeste");
 		
-		s0.RegistrarEmprestimo("nomeLivroTeste","nomeUsuarioTeste");
+		s0.RegistrarEmprestimo("nomeLivroTeste","nomeUsuarioTeste",2);
 		
 		s0.RegistrarDevolucao("nomeLivroTeste","nomeUsuarioTeste");
 		

@@ -34,13 +34,10 @@ public class Sistema {
 	
 	void Persistir(Usuario u0) throws Exception{
 		BD.add(u0);
-		System.out.println("usuário adicionado ao BD");
 		 
 	}
 	
 	Usuario ProcurarBD(String nome){
-		
-		System.out.printf("Usuário %s sendo procurado no BD! \n",nome);
 		for(Usuario u : BD){
 			if(u.GetNome() == nome){
 				return u;
@@ -91,7 +88,7 @@ public class Sistema {
 		BD.add(u0);
 	}
 	
-	void RegistrarEmprestimo(String nomeLivro, String nomeUsuario){
+	void RegistrarEmprestimo(String nomeLivro, String nomeUsuario,int prazo){
 		Livro l0;
 		Usuario u0;
 		
@@ -107,7 +104,7 @@ public class Sistema {
 			return ;
 		}
 		
-		Emprestimo e0 = new Emprestimo(nomeLivro,nomeUsuario);
+		Emprestimo e0 = new Emprestimo(nomeLivro,nomeUsuario,prazo);
 		
 		BDLivros.remove(l0);
 		l0.SetStatus("retirado");
@@ -141,6 +138,35 @@ public class Sistema {
 		BDEmprestimos.remove(e0);
 	}
 	
+	public List<LivroUsuario> GetStatusLivros(String nomeUsuario){
+		Usuario u0;
+		List<LivroUsuario> luLista = new ArrayList<LivroUsuario>();
+		
+		u0 = ProcurarBD(nomeUsuario);
+		
+		if(u0 == null){
+			return null;
+		}
+		
+		for(Emprestimo e : BDEmprestimos){
+			if(e.GetNomeUsuario() == nomeUsuario){
+				if(e.GetPrazo()>=0){
+					LivroUsuario lu0 = new LivroUsuario();
+					lu0.SetNomeLivro(e.GetNomeLivro());
+					lu0.SetStatusPrazo("No prazo");
+					luLista.add(lu0);
+				}else{
+					LivroUsuario lu0 = new LivroUsuario();
+					lu0.SetNomeLivro(e.GetNomeLivro());
+					lu0.SetStatusPrazo("Fora do prazo");
+					luLista.add(lu0);
+				}
+			}
+		}
+		
+		return luLista;
+	}
+	
 	public String StatusLivro(String nomeLivro){
 		Livro l0;
 		
@@ -152,4 +178,5 @@ public class Sistema {
 		
 		return l0.GetStatus();
 	}
+	
 }
